@@ -18,6 +18,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    closeDrawer({ commit }) {
+      commit("closeDrawer");
+    },
     toggleDrawer({ commit, state }) {
       state.ui.drawerOpen ? commit("closeDrawer") : commit("openDrawer");
     }

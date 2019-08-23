@@ -8,13 +8,7 @@
               <v-toolbar color="primary" dark flat>
 								<v-toolbar-title>Registration form</v-toolbar-title>
               </v-toolbar>
-              <v-card-text>
-                <RegistrationForm />
-              </v-card-text>
-              <v-card-actions>
-                <div class="flex-grow-1"></div>
-                <v-btn color="primary">Login</v-btn>
-              </v-card-actions>
+              <RegistrationForm />
             </v-card>
           </v-col>
         </v-row>
@@ -24,7 +18,7 @@
 </template>
 
 <script>
-import RegistrationForm from "../components/forms/RegistrationForm.vue";
+import RegistrationForm from "@/forms/RegistrationForm.vue";
 
 export default {
   components: {

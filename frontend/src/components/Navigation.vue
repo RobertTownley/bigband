@@ -22,8 +22,8 @@
     </v-app-bar>
 
     <v-navigation-drawer
-        v-model='$store.state.ui.drawerOpen'
-        app
+      v-model='$store.state.ui.drawerOpen'
+      app
     >
       <v-list dense nav>
         <v-list-item>
