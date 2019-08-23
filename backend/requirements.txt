@@ -1,0 +1,14 @@
+# Backend web framework
+django==2.2.4
+
+# Interact with the running webpack server during deployment
+django-webpack-loader
+
+# WSGI library for deploying the app
+gunicorn==19.9.0
+
+# PostgreSQL Adapter
+psycopg2==2.8.3
+
+# Util for talking to the cache database
+redis==3.3.6

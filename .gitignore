@@ -1,0 +1,12 @@
+# Environment Secrets
+.env
+
+# Development
+*.swp
+
+# Frontend
+**/node_modules/**
+**/webpack-stats.json
+
+# Backend
+**/__pycache__/**
