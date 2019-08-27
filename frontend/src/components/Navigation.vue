@@ -45,8 +45,18 @@
 </template>
 
 <script>
+import paths from '@/router/paths.js';
+
 export default {
   computed: {
+    links() {
+      const pageTitles = this.$store.getters.isAuthenticated
+        ? ['About', 'Logout']
+        : ['About', 'Login', 'Register'];
+      return pageTitles.map(pageTitle => {
+        return paths.find(path => path.title == pageTitle)
+      })
+    },
     showAppIcon() {
       return this.drawerOpen || !this.$vuetify.breakpoint.smAndUp
     }
@@ -54,11 +64,6 @@ export default {
   data() {
     return {
       drawerOpen: false,
-      links: [
-        {'title': 'About', 'path': '/about'},
-        {'title': 'Login', 'path': '/login'},
-        {'title': 'Register', 'path': '/register'},
-      ],
     }
   },
   methods: {

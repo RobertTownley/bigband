@@ -64,8 +64,8 @@ export default {
         if(rawResponse.status == 200){
           // Successful Login
           rawResponse.json().then(response => {
-            console.log("SUCCESS")
-            console.log(response)
+            this.$store.dispatch("authenticate", response.key)
+            this.$router.push("/dashboard");
           })
         } else if(rawResponse.status == 400) {
           // Unsuccessful login
@@ -73,7 +73,6 @@ export default {
             this.errors = response
           })
         } else {
-          console.log(rawResponse)
           this.errors = {
             non_field_errors: [
               "Sorry, something went wrong. Please try again later.",
@@ -84,7 +83,6 @@ export default {
     },
     navigateForgotPassword() {
       this.$router.push('/forgot')
-
     },
     resetErrors() {
       this.errors = {}

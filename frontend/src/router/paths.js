@@ -1,6 +1,8 @@
 import About from "@/views/About.vue";
+import Dashboard from "@/views/Dashboard.vue";
 import Home from "@/views/Home.vue";
 import Login from "@/views/Login.vue";
+import Logout from "@/views/Logout.vue";
 import Register from "@/views/Register.vue";
 import ForgotPassword from "@/views/ForgotPassword.vue";
 
@@ -13,21 +15,36 @@ export default [
   {
     path: "/about",
     name: "about",
-    component: About
+    component: About,
+    title: "About"
   },
   {
     path: "/login",
     name: "login",
-    component: Login
+    component: Login,
+    title: "Login"
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    component: Logout,
+    title: "Logout"
   },
   {
     path: "/register",
     name: "register",
-    component: Register
+    component: Register,
+    title: "Register"
   },
   {
     path: "/forgot",
     name: "forgot",
     component: ForgotPassword
+  },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: Dashboard,
+    title: "My Account"
   }
 ];
