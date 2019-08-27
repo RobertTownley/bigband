@@ -1,6 +1,9 @@
 # Backend web framework
 django==2.2.4
 
+# Rest API
+djangorestframework==3.10.2
+
 # Interact with the running webpack server during deployment
 django-webpack-loader
 

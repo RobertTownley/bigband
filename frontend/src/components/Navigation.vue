@@ -21,10 +21,7 @@
       </template>
     </v-app-bar>
 
-    <v-navigation-drawer
-      v-model='$store.state.ui.drawerOpen'
-      app
-    >
+    <v-navigation-drawer v-model='drawerOpen' app>
       <v-list dense nav>
         <v-list-item>
           <v-list-item-content>
@@ -51,11 +48,12 @@
 export default {
   computed: {
     showAppIcon() {
-      return this.$store.state.ui.drawerOpen || !this.$vuetify.breakpoint.smAndUp
+      return this.drawerOpen || !this.$vuetify.breakpoint.smAndUp
     }
   },
   data() {
     return {
+      drawerOpen: false,
       links: [
         {'title': 'About', 'path': '/about'},
         {'title': 'Login', 'path': '/login'},
@@ -65,7 +63,7 @@ export default {
   },
   methods: {
     toggleDrawer() {
-      this.$store.dispatch('toggleDrawer')
+      this.drawerOpen = !this.drawerOpen
     }
 
   }

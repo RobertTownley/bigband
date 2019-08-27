@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card-text>
-      <v-form @submit.prevent='submit'>
+      <v-form>
         <v-text-field
           v-model='values.first_name'
           label='First Name'
@@ -42,7 +42,10 @@
     </v-card-text>
     <v-card-actions>
       <div class="flex-grow-1"></div>
-      <v-btn color="primary">Register</v-btn>
+      <v-btn
+        outlined
+        @click='submitForm'
+        color="primary">Register</v-btn>
     </v-card-actions>
   </div>
 </template>
@@ -62,6 +65,14 @@ export default {
       password2: null,
     },
   }),
+  methods: {
+    submitForm() {
+      fetch("/api/v1/").then(response => {
+        console.log(response)
+        
+      })
+    },
+  },
   name: "RegistrationForm",
 }
 </script>

@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Third-Party Applications
+    "rest_framework",
     "webpack_loader",
     # Internal Applications
     "accounts",
