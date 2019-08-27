@@ -12,6 +12,8 @@ router.register(r"users", UserViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/v1/auth/registration", include("rest_auth.registration.urls")),
+    path("api/v1/auth/", include("rest_auth.urls")),
     path("api/v1/", include(router.urls)),
     path("api-auth/", include("rest_framework.urls")),
     re_path("^.*$", TemplateView.as_view(template_name="application.html"), name="app"),

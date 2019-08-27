@@ -4,6 +4,11 @@ django==2.2.4
 # Rest API
 djangorestframework==3.10.2
 
+# Rest API authentication
+django-allauth==0.39.1
+django-rest-auth==0.9.5
+django-rest-auth[with_social]
+
 # Interact with the running webpack server during deployment
 django-webpack-loader
 

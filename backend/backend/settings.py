@@ -24,10 +24,16 @@ INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
+    "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Third-Party Applications
+    "allauth",
+    "allauth.account",
+    "rest_auth",
+    "rest_auth.registration",
     "rest_framework",
+    "rest_framework.authtoken",
     "webpack_loader",
     # Internal Applications
     "accounts",
@@ -79,6 +85,10 @@ DATABASES = {
 
 
 # Authentication and Authorization
+ACCOUNT_USER_MODEL_USERNAME_FIELD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
 AUTH_USER_MODEL = "accounts.User"
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -88,6 +98,8 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
+
+SITE_ID = 1
 
 
 # Internationalization
