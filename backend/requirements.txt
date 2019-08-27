@@ -1,6 +1,9 @@
 # Backend web framework
 django==2.2.4
 
+# Development Utility
+django-extensions==2.2.1
+
 # Rest API
 djangorestframework==3.10.2
 

@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     # Third-Party Applications
     "allauth",
     "allauth.account",
+    "django_extensions",
     "rest_auth",
     "rest_auth.registration",
     "rest_framework",
@@ -128,4 +129,11 @@ WEBPACK_LOADER = {
         "BUNDLE_DIR_NAME": "/bundles/",
         "STATS_FILE": os.path.join(FRONTEND_DIR, "webpack-stats.json"),
     }
+}
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": {"rest_framework.permissions.DjangoModelPermissions"},
 }
