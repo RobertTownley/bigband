@@ -49,11 +49,10 @@ export default {
   },
   methods: {
     sendPasswordReset() {
-      const data = Object.assign(this.values, this.$route.params);
-      console.log(data);
+      let data = Object.assign(this.values, this.$route.params);
       this.resetForm();
       fetch("/api/v1/auth/password/reset/confirm/", {
-        body: JSON.stringify(this.values),
+        body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
           "X-CSRFToken": getCookie("csrftoken")

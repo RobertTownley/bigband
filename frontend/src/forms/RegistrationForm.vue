@@ -1,11 +1,13 @@
 <template>
   <div>
     <v-card-text>
-      <v-form>
+      <v-alert v-if="errorMsg" type="error">{{ errorMsg }}</v-alert>
+      <v-alert v-if="message" type="success">{{ message }}</v-alert>
+      <v-form v-if="!message">
         <v-text-field
           v-model="values.first_name"
+          :error-messages="errors.first_name"
           label="First Name"
-          :rules="[rules.required]"
           prepend-icon="person"
           type="text"
           required
@@ -13,34 +15,34 @@
         <v-text-field
           label="Last Name"
           v-model="values.last_name"
-          :rules="[rules.required]"
+          :error-messages="errors.last_name"
           prepend-icon="person"
           type="text"
         />
         <v-text-field
           label="Email"
           v-model="values.email"
-          :rules="[rules.required]"
+          :error-messages="errors.email"
           prepend-icon="email"
           type="text"
         />
         <v-text-field
           label="Password"
-          v-model="values.password"
-          :rules="[rules.required]"
+          v-model="values.password1"
+          :error-messages="errors.password1"
           prepend-icon="lock"
           type="password"
         />
         <v-text-field
           label="Repeat Password"
           v-model="values.password2"
-          :rules="[rules.required]"
+          :error-messages="errors.password2"
           prepend-icon="lock"
           type="password"
         />
       </v-form>
     </v-card-text>
-    <v-card-actions>
+    <v-card-actions v-if="!message">
       <div class="flex-grow-1"></div>
       <v-btn outlined @click="submitForm" color="primary">Register</v-btn>
     </v-card-actions>
@@ -48,27 +50,55 @@
 </template>
 
 <script>
+import { getCookie } from "@/auth.js";
+
 export default {
-  data: () => ({
-    errors: {},
-    rules: {
-      required: value => !!value || "Required."
-    },
-    values: {
-      first_name: null,
-      last_name: null,
-      email: null,
-      password: null,
-      password2: null
-    }
-  }),
-  methods: {
-    submitForm() {
-      fetch("/api/v1/").then(response => {
-        console.log(response);
-      });
+  computed: {
+    errorMsg() {
+      return this.errors.non_field_errors
+        ? this.errors.non_field_errors[0]
+        : null;
     }
   },
-  name: "RegistrationForm"
+  data: () => ({
+    errors: {},
+    message: null,
+    values: {}
+  }),
+  methods: {
+    resetForm() {
+      this.errors = {};
+    },
+    submitForm() {
+      this.resetForm();
+      fetch("/api/v1/auth/registration/", {
+        body: JSON.stringify(this.values),
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": getCookie("csrftoken")
+        },
+        method: "POST"
+      }).then(rawResponse => {
+        if (rawResponse.status == 200 || rawResponse.status == 201) {
+          // Successful Login
+          rawResponse.json().then(response => {
+            this.$store.dispatch("authenticate", response.key);
+            this.$router.push("/dashboard");
+          });
+        } else if (rawResponse.status == 400) {
+          // Unsuccessful login
+          rawResponse.json().then(response => {
+            this.errors = response;
+          });
+        } else {
+          this.errors = {
+            non_field_errors: [
+              "Sorry, something went wrong. Please try again later."
+            ]
+          };
+        }
+      });
+    }
+  }
 };
 </script>
