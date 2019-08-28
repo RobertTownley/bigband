@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-card-text>
-      <v-alert v-if='message' type='success'>{{ message }}</v-alert>
       <v-alert v-if='errorMsg' type='error'>{{ errorMsg }}</v-alert>
-      <v-form>
+      <v-alert v-if='message' type='success'>{{ message }}</v-alert>
+      <v-form v-else>
         <v-text-field
           label="Email Address"
           v-model='values.email'
@@ -41,6 +41,7 @@ export default {
   },
   methods: {
     sendPasswordReset() {
+      this.resetForm();
       fetch("/api/v1/auth/password/reset/", {
         body: JSON.stringify(this.values),
         headers: {
@@ -67,7 +68,11 @@ export default {
           }
         }
       })
-    }
+    },
+    resetForm() {
+      this.errors = {}
+      this.message = null
+    },
   },
 }
 </script>

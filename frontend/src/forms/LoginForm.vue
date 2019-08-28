@@ -52,7 +52,7 @@ export default {
   }),
   methods: {
     login() {
-      this.resetErrors()
+      this.resetForm()
       fetch("/api/v1/auth/login/", {
         body: JSON.stringify(this.values),
         headers: {
@@ -84,7 +84,7 @@ export default {
     navigateForgotPassword() {
       this.$router.push('/forgot')
     },
-    resetErrors() {
+    resetForm() {
       this.errors = {}
     },
   }
