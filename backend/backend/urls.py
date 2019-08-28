@@ -10,13 +10,20 @@ from accounts.viewsets import UserViewSet
 router = DefaultRouter()
 router.register(r"users", UserViewSet)
 
+FrontendApplication = TemplateView.as_view(template_name="application.html")
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/auth/registration", include("rest_auth.registration.urls")),
     path("api/v1/auth/", include("rest_auth.urls")),
     path("api/v1/", include(router.urls)),
     path("api-auth/", include("rest_framework.urls")),
-    re_path("^.*$", TemplateView.as_view(template_name="application.html"), name="app"),
+    path(
+        "#/accounts/password_reset/<slug:uidb64>/<slug:token>",
+        FrontendApplication,
+        name="password_reset_confirm",
+    ),
+    re_path("^.*/?$", FrontendApplication, name="app"),
 ]
 if settings.DEBUG:
     urlpatterns = (

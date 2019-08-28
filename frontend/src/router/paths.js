@@ -5,6 +5,7 @@ import Login from "@/views/Login.vue";
 import Logout from "@/views/Logout.vue";
 import Register from "@/views/Register.vue";
 import ForgotPassword from "@/views/ForgotPassword.vue";
+import ResetPassword from "@/views/ResetPassword.vue";
 
 export default [
   {
@@ -19,19 +20,25 @@ export default [
     title: "About"
   },
   {
-    path: "/login",
+    path: "/accounts/login",
     name: "login",
     component: Login,
     title: "Login"
   },
   {
-    path: "/logout",
+    path: "/accounts/logout",
     name: "logout",
     component: Logout,
     title: "Logout"
   },
   {
-    path: "/register",
+    path: "/accounts/password_reset/:uid/:token/",
+    name: "password_reset",
+    component: ResetPassword,
+    title: "PasswordReset"
+  },
+  {
+    path: "/accounts/register",
     name: "register",
     component: Register,
     title: "Register"

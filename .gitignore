@@ -10,3 +10,4 @@
 
 # Backend
 **/__pycache__/**
+backend/sent_emails
