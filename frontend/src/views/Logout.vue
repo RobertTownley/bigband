@@ -6,7 +6,7 @@
           <v-col cols="12" sm="8" md="4">
             <v-card class="elevation-12">
               <v-toolbar color="primary" dark flat>
-								<v-toolbar-title>Log Out</v-toolbar-title>
+                <v-toolbar-title>Log Out</v-toolbar-title>
               </v-toolbar>
             </v-card>
           </v-col>
@@ -19,8 +19,8 @@
 <script>
 export default {
   created() {
-    this.$store.dispatch("deauthenticate")
+    this.$store.dispatch("deauthenticate");
     this.$router.push("/accounts/login");
-  },
-}
+  }
+};
 </script>

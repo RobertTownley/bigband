@@ -7,13 +7,12 @@
 <script>
 export default {
   created() {
-    this.isAuthenticated = this.$store.getters.isAuthenticated
-
+    this.isAuthenticated = this.$store.getters.isAuthenticated;
   },
   data() {
     return {
-      isAuthenticated: "WHEE",
-    }
+      isAuthenticated: "WHEE"
+    };
   }
-}
+};
 </script>

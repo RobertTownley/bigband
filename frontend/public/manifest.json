@@ -1,6 +1,6 @@
 {
-  "name": "myapplication",
-  "short_name": "myapplication",
+  "name": "frontend",
+  "short_name": "frontend",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

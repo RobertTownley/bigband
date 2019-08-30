@@ -5,6 +5,7 @@ import store from "./store";
 import "./registerServiceWorker";
 import vuetify from "./plugins/vuetify";
 import Axios from "axios";
+import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = Axios;

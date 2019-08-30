@@ -6,7 +6,7 @@
           <v-col cols="12" sm="8" md="4">
             <v-card class="elevation-12">
               <v-toolbar color="primary" dark flat>
-								<v-toolbar-title>Registration form</v-toolbar-title>
+                <v-toolbar-title>Registration form</v-toolbar-title>
               </v-toolbar>
               <RegistrationForm />
             </v-card>
@@ -22,14 +22,14 @@ import RegistrationForm from "@/forms/RegistrationForm.vue";
 
 export default {
   components: {
-    RegistrationForm,
+    RegistrationForm
   },
   data: () => ({
     drawer: null,
     form: {
       firstName: null,
-      lastName: null,
-    },
-  }),
-}
+      lastName: null
+    }
+  })
+};
 </script>

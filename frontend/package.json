@@ -1,5 +1,5 @@
 {
-  "name": "myapplication",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,10 +12,11 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@mdi/font": "^4.0.96",
+    "@mdi/font": "^3.6.95",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "register-service-worker": "^1.6.2",
+    "roboto-fontface": "*",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuetify": "^2.0.0",

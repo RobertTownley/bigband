@@ -1,20 +1,20 @@
 <template>
-  <v-app id='app'>
+  <v-app id="app">
     <Navigation />
     <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-import Navigation from '@/components/Navigation.vue';
+import Navigation from "@/components/Navigation.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Navigation,
+    Navigation
   },
   data: () => ({
-    drawer: true,
-  }),
+    drawer: true
+  })
 };
 </script>
