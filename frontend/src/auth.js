@@ -13,3 +13,10 @@ export function getCookie(name) {
   }
   return cookieValue;
 }
+
+export function getHeaders() {
+  return {
+    "Content-Type": "application/json",
+    "X-CSRFToken": getCookie("csrftoken")
+  };
+}

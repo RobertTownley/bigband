@@ -71,8 +71,11 @@ export default {
     },
     submitForm() {
       this.resetForm();
+      let data = Object.assign({}, this.values);
+      data.email = data.email ? data.email.toLowerCase() : "";
+      data.username = data.email;
       fetch("/api/v1/auth/registration/", {
-        body: JSON.stringify(this.values),
+        body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
           "X-CSRFToken": getCookie("csrftoken")

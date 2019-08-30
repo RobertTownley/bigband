@@ -10,9 +10,13 @@ export default new Vuex.Store({
     }
   },
   state: {
-    authenticationKey: localStorage.getItem("authenticationKey") || ""
+    authenticationKey: localStorage.getItem("authenticationKey") || "",
+    userData: {}
   },
   mutations: {
+    commitUserDataToStore(state, data) {
+      state.userData = data;
+    },
     setAuthenticationKey(state, key) {
       state.authenticationKey = key;
     }
@@ -25,6 +29,10 @@ export default new Vuex.Store({
     deauthenticate({ commit }) {
       localStorage.removeItem("authenticationKey");
       commit("setAuthenticationKey", "");
+      commit("commitUserDataToStore", {});
+    },
+    saveUserData({ commit }, data) {
+      commit("commitUserDataToStore", data);
     }
   }
 });
