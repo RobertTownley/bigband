@@ -1,3 +1,4 @@
+import Account from "@/views/Account.vue";
 import About from "@/views/About.vue";
 import Dashboard from "@/views/Dashboard.vue";
 import Home from "@/views/Home.vue";
@@ -52,6 +53,12 @@ export default [
     path: "/dashboard",
     name: "dashboard",
     component: Dashboard,
-    title: "My Account"
+    title: "Dashboard"
+  },
+  {
+    path: "/my-account",
+    name: "my_account",
+    component: Account,
+    title: "Account"
   }
 ];

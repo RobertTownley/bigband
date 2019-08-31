@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <h1>This is a logged-in user's dashboard</h1>
+  <v-container class="dashboard">
+    <h1>My Account</h1>
   </v-container>
 </template>
 

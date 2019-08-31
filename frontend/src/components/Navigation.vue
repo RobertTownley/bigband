@@ -2,7 +2,7 @@
   <div id="navigation">
     <v-app-bar app elevate-on-scroll inverted-scroll height="56">
       <v-toolbar-title>
-        <v-btn text to="/">My Website</v-btn>
+        <v-btn outlined text to="/">My Website</v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
@@ -48,7 +48,7 @@ export default {
   computed: {
     links() {
       const pageTitles = this.$store.getters.isAuthenticated
-        ? ["About", "Logout"]
+        ? ["Account", "Logout"]
         : ["About", "Login", "Register"];
       return pageTitles.map(pageTitle => {
         return paths.find(path => path.title == pageTitle);

@@ -20,6 +20,11 @@ export default {
   components: {
     HelloWorld,
     Hero
+  },
+  created() {
+    if (this.$store.getters.isAuthenticated) {
+      this.$router.push("/dashboard");
+    }
   }
 };
 </script>
