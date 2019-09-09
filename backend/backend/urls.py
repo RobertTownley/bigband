@@ -19,9 +19,14 @@ urlpatterns = [
     path("api/v1/", include(router.urls)),
     path("api-auth/", include("rest_framework.urls")),
     path(
-        "#/accounts/password_reset/<slug:uidb64>/<slug:token>",
+        "#/accounts/password_reset/<slug:uidb64>/<slug:token>/",
         FrontendApplication,
         name="password_reset_confirm",
+    ),
+    path(
+        "#/accounts/email_verification_sent/",
+        FrontendApplication,
+        name="account_email_verification_sent",
     ),
     re_path("^.*/?$", FrontendApplication, name="app"),
 ]

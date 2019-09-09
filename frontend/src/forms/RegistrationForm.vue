@@ -85,8 +85,7 @@ export default {
         if (rawResponse.status == 200 || rawResponse.status == 201) {
           // Successful Login
           rawResponse.json().then(response => {
-            this.$store.dispatch("authenticate", response.key);
-            this.$router.push("/dashboard");
+            this.message = response.detail;
           });
         } else if (rawResponse.status == 400) {
           // Unsuccessful login
