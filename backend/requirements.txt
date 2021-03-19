@@ -1,5 +1,5 @@
 # Backend web framework
-django==2.2.4
+django==2.2.18
 
 # Development Utility
 django-extensions==2.2.1
